@@ -23,8 +23,8 @@ class set_discord:
             if message.author == self.client.user:
                 return   
             if not message.content.startswith('!'):
-                await message.channel.send("안녕하세요")
-                await message.channel.send(message)
+                await message.channel.send("강아지 찾는 서비스입니다.\n성별, 색상, 사는 지역, 품종 등을 입력해주세요")
+
             await self.client.process_commands(message)
 
         @self.client.command()
@@ -43,7 +43,7 @@ class set_discord:
                 color=0x00ff00
             )
             embed.add_field(name="!도움말", value="이 도움말을 표시합니다")
-            embed.add_field(name="!embed", value="임베드 예시를 보여줍니다")
+            embed.add_field(name="!성별", value="임베드 예시를 보여줍니다")
             await ctx.send(embed=embed)
 
     def start_client(self, TOKEN):
