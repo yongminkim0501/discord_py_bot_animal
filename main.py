@@ -1,5 +1,6 @@
 from run_discord import *
 from discord_main import *
+
 import json
 def connect_dog(path):
     with open(path) as f:
@@ -15,8 +16,10 @@ def main():
 
     discord_TOKEN = connect_discord("discord_token.json")
     discord_object = set_discord()
-    discord_object.start_client(discord_TOKEN)    
+    discord_object.set_discord_bot()
+    discord_object.start_client(discord_TOKEN)
 '''
+    test code
     check = api.search_SIGUN_NM("수원시")
     print(check)
     check_count_age = api.get_count_age()
