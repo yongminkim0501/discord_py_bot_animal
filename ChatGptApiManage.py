@@ -23,6 +23,6 @@ class gpt_object:
                     "content": message}
             ]
         )
-        return completion.chilces[0].message
+        return completion.choices[0].message
 
 

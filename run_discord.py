@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import json
+from ChatGptApiManage import *
 # config.json 파일에서 토큰 읽기
 def connect_discord(path):
     with open(path) as f:
@@ -14,15 +15,20 @@ class set_discord:
         self.client = commands.Bot(command_prefix='!',
                                 intents=self.intents,
                                 help_command=None)
-
+        self.gpt = gpt_object()
     def set_discord_bot(self):
         # self.intents 는 봇 개발 시, 봇이 discord 서버에서 어떤 이벤트를 받을지 설정
         
         @self.client.event
         async def on_message(message):
             if message.author == self.client.user:
-                return   
-            if not message.content.startswith('!'):
+                return
+            
+            if message.content.startswith('!'):
+                result = self.gpt.send_chatGpt_server(message.content)
+                await message.channel.send(result)
+            #if not message.content.startswith('!'):
+            else:
                 await message.channel.send("강아지 찾는 서비스입니다.\n성별, 색상, 사는 지역, 품종 등을 입력해주세요")
 
             await self.client.process_commands(message)
