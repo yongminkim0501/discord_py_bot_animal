@@ -150,15 +150,15 @@ name_characteristic = ["나이","견종","지역","색상"]
 openApiURL_similarity = "http://aiopen.etri.re.kr:8000/WiseWWN/WordRel"
 
 firstWord = "강아지"
-firstSenseId = "1"
+firstSenseId = "00"
 secondWord = "포메라니안"
-secondSenseId = "2"
+secondSenseId = "00"
 
 requestJson = {
     "argument": {
-        'first_word': firstWord,
+        'first_word': "강아지",
         'first_sense_id': firstSenseId,
-        'second_word': secondWord,
+        'second_word': "포메라니안",
         'second_sense_id': secondSenseId
     }
 }
@@ -174,3 +174,6 @@ response = http.request(
 print("[responseCode] " + str(response.status))
 print("[responBody]")
 print(str(response.data,"utf-8"))
+
+## 이 방법으로 사용 시, 언어 간 유사도 측정 시에 없는 강아지 종류에 대한 전처리 필요
+# 일이 2배 3배로 들기 때문에 해당 문제에 대한 접근 새로 정리 필요
