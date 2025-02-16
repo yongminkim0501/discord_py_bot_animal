@@ -87,22 +87,3 @@ class animalcheck:
     def search(self, dog_breed, color, sex, neutering):
         dataset = self.get_pandas_frame_data() # pd.DataFrame 형식
         
-def main():
-    api_key = "8c605c4107134176a66bcea32876cfba"
-    api_url = "https://openapi.gg.go.kr/AbdmAnimalProtect"
-    api = animalcheck(api_key, api_url)
-    api.run() # 이 부분을 실행해야만 함
-'''
-    check = api.search_SIGUN_NM("수원시")
-    print(check)
-    check_count_age = api.get_count_age()
-    check_count_sex = api.get_count_sex()
-    check_count_phone = api.get_count_CHRGPSN_CONTCT_NO()
-    check_count_species = api.get_count_species()
-    print(f"나이별 체크 : {check_count_age}")
-    print(f"담당자 폰 번호 별 마리 수 : {check_count_phone}")
-    print(f"성별 별 유기견 마리 수 : {check_count_sex}")
-    print(f"종 별 유기견 마리 수 : {check_count_species}")
-'''
-if __name__ == '__main__':
-    main() # 현재 100개씩 출력되므로 계속해서 출력하는 코드로 변경해야함.
