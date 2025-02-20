@@ -13,7 +13,7 @@ class gpt_object:
         self.client = OpenAI(
             api_key = self.token
         )
-        self.instruction = "-> 여기 부터 지시 사항이야 이 문장에서 내가 필요한 정보는 강아지 이름, 색상, 사는 곳, 나이, 품종 등이야 내가 활용할 수 있게 끔 출력을 줘, 그리고 난 이정보를 코딩하는데 사용할거니까 json 타입으로 활용할 수 있게끔 줘"
+        self.instruction = "-> 여기 부터 지시 사항, 다른 말 없이 json 타입과 동일하게 메시지를 나한테 보내줘, json type 속의 속성 순서는 1. sigun_nm, 2.species_nm, 3.color_nm, 4.sex_nm 이고 각각 의미하는 것은 sigun_nm은 살고있는 시군의 이름, species_nm은 견종 이름, color_nm은 강아지 색상, sex_nm은 성별 이름이야 수컷 또는 암컷으로 표시해줘, 이를 제외한 모든 부가적인 말 없이 json 형태로만 보내줘"
 
     def send_chatGpt_server(self, message):
         completion = self.client.chat.completions.create(

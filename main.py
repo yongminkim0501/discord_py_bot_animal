@@ -15,7 +15,7 @@ def main():
     api = animalcheck(api_key, api_url)
     api.run() # 이 부분을 실행해야만 함
 
-    searching_data_object = searching_data()
+    searching_data_object = update_searching_data()
     searching_data_object.set_api(api)     # request 사용안하고 set을 통하여 연결
 
     discord_TOKEN = connect_discord("discord_token.json")
