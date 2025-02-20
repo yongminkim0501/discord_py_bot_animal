@@ -83,7 +83,7 @@ class animalcheck:
 
     def run(self):
         self.get_animals()
-
+'''
     def search(self, dog_breed, color, sex, neutering):
         dataset = self.get_pandas_frame_data() # pd.DataFrame 형식
-        
+        '''

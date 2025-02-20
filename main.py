@@ -1,5 +1,6 @@
 from run_discord import *
 from discord_main import *
+from searching_data import *
 
 import json
 def connect_dog(path):
@@ -14,10 +15,17 @@ def main():
     api = animalcheck(api_key, api_url)
     api.run() # 이 부분을 실행해야만 함
 
+    searching_data_object = searching_data()
+    searching_data_object.set_api(api)     # request 사용안하고 set을 통하여 연결
+
     discord_TOKEN = connect_discord("discord_token.json")
     discord_object = set_discord()
     discord_object.set_discord_bot()
     discord_object.start_client(discord_TOKEN)
+#    check = api.search_SIGUN_NM("수원시")
+#    get_to_frame_data = api.get_pandas_frame_data()
+#    print(get_to_frame_data)
+#    print(check)
 '''
     test code
     check = api.search_SIGUN_NM("수원시")
