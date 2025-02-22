@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import json
 from ChatGptApiManage import *
+
 # config.json 파일에서 토큰 읽기
 def connect_discord(path):
     with open(path) as f:

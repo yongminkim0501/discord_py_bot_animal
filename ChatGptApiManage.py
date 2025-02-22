@@ -1,5 +1,6 @@
 from openai import OpenAI
 import json
+from chatGptJsonMessage import *
 
 def connect_chatGpt(path):
     with open(path) as f:
@@ -24,6 +25,18 @@ class gpt_object:
                     "content": message + self.instruction}
             ]
         )
+        chatGptobject = ChatGptMessage()
+        chatGptobject.get_message(completion.choices[0].message)
+
+        '''
+        예시 데이터 :
+        ChatCompletionMessage(content='{\n  "sigun_nm": "강남구",\n  "species_nm": "포메라니안",\n  "color_nm": "갈색과 흰색",\n  "sex_nm": "수컷"\n}', refusal=None, role='assistant', audio=None, function_call=None, tool_calls=None)
+        이렇게 전달됨
+        '''
+        '''
+        print(f"completion data : {completion}")
+        print(f"completion message data : {completion.choices[0].message}")
+        '''
         return completion.choices[0].message
 
 

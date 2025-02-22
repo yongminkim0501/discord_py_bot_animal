@@ -3,7 +3,11 @@ import json
 from collections import defaultdict
 import json
 import urllib3
-
+'''
+나중에 개발을 위해 아껴두기, 사전 기반 형태소 처리 알고리즘 사용하려 했으나 갖고 있지 않은 견종
+데이터가 생각보다 많아서 한계가 있다고 판단하여 chatgpt prompt를 이용한 처리를 하는 것으로
+방향을 바꿈
+'''
 def connect_etri(path):
     with open(path) as f:
         config = json.load(f)

@@ -1,4 +1,5 @@
 from ChatGptApiManage import *
+import json
 
 class ChatGptMessage:
     def __init__(self):
@@ -8,11 +9,18 @@ class ChatGptMessage:
         self.sex_nm = None
 
     def get_message(self, message):
-        self.sigun_nm = message[0][1]
-        self.species_nm = message[1][1]
-        self.color_nm = message[2][1]
-        self.sex_nm = message[3][1]
+        json_dict = json.loads(message.content)
 
+        self.sigun_nm = json_dict["sigun_nm"]
+        self.species_nm = json_dict["species_nm"]
+        self.color_nm = json_dict["color_nm"]
+        self.sex_nm = json_dict["sex_nm"]
+        '''
+        print(self.sigun_nm)    #강남구
+        print(self.species_nm)  #포메라니안
+        print(self.color_nm)    #갈색과 흰색
+        print(self.sex_nm)      #수컷 등
+        '''
     def get_sigun_nm(self):
         return self.sigun_nm
 
