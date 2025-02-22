@@ -12,3 +12,4 @@ candidate_array = []
 update_searching_data_object = update_searching_data(temp_sigun_nm, temp_species_nm, temp_color_nm, temp_sex_nm)
 candidate_array = update_searching_data_object.all_work_run() # 실행
 
+print(candidate_array)
