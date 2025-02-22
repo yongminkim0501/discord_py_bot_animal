@@ -2,10 +2,14 @@ import pandas
 from discord_main import *
 
 class update_searching_data:
-    def __init__(self,):
+    def __init__(self, sigun_nm, species_nm, color_nm, sex_nm):
         self.api = None
         self.dataset = None
         self.message = None
+        self.sigun_nm = sigun_nm
+        self.color_nm = color_nm
+        self.sex_nm = sex_nm
+        self.speices_nm = species_nm
 
     def set_api(self, api_name):
         self.api = api_name
@@ -38,14 +42,12 @@ class update_searching_data:
         self.message = message
 
     def all_work_run(self):
-        json_message = self.message
         # 처리 데이터는 나중에 정의
         # 필요한 데이터 형식은 sigun_name, species_nm, color_nm, sex_nm
-        sigun_nm, species_nm, color_nm, sex_nm = None, None, None, None
 
-        self.searching_by_SIGUN(sigun_nm)
-        self.searching_by_Species_NM(species_nm)
-        self.searching_by_color_nm(color_nm)
-        self.searching_by_sex_nm(sex_nm)
+        self.searching_by_SIGUN(self.sigun_nm)
+        self.searching_by_Species_NM(self.species_nm)
+        self.searching_by_color_nm(self.color_nm)
+        self.searching_by_sex_nm(self.sex_nm)
 
         return self.dataset
